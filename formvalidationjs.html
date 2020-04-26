@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>validation Using Javascript</title>
+	<script>
+	function validate(){
+  var name = document.getElementById("name").value;
+  var subject = document.getElementById("subject").value;
+  var phone = document.getElementById("phone").value;
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
+  var address = document.getElementById("address").value;
+  var error_message = document.getElementById("error_message");
+  
+  error_message.style.padding = "5px";
+  
+  if(name.length==0){
+    error_message.innerHTML ="please enter the name";
+    return false;
+  }
+    if(name.length< 5){
+    error_message.innerHTML = "invalid length of name";
+    return false;
+  }
+  if(subject.length == 0){
+    error_message.innerHTML ="please enter the subject name.";
+    return false;
+  }
+  if(subject.length < 6){
+    error_message.innerHTML = "Please Enter Correct length Subject";
+    return false;
+  }
+  if(isNaN(phone)){
+    text =
+    error_message.innerHTML =  "phone contain Number only";;
+    return false;
+  }
+  if(phone.length != 10){
+    error_message.innerHTML = "Please Enter valid Phone Number";
+    return false;
+  }
+  if(email.indexOf("@") == -1 || email.length < 6){
+	error_message.innerHTML ="Please Enter valid Email";
+    return false;
+  }
+   if(password.length==0){
+    error_message.innerHTML = "Please Enter password";
+    return false;
+  }
+    if(password.length< 5){
+    error_message.innerHTML = "password too short";
+    return false;
+  }
+  
+  if(address.length == 0){
+    error_message.innerHTML ="please ente the address.";
+    return false;
+  }
+  
+  if(address.length <= 14){
+    error_message.innerHTML = "Please Enter More Than 14 Characters";
+    return false;
+  }
+  alert("Form Submitted Successfully!");
+  return true;
+}
+	</script>
+</head>
+<body>
+
+<table style=" background-color:#eff; height:500px; width:200px; border-radius:5px;" align="center" cellspacing = "7" cellpadding = "7" border = "1">
+<div class="wrapper"">
+  <tr><td colspan="2"><h2 style="color:blue;text-align:center">Fill the form</h2></td><br></tr>
+  <tr><td colspan="2"><div style="color:red; "id="error_message"></div><td><tr>
+  <form id="myform" onsubmit="return validate();">
+
+  
+    <tr><div class="input_field">
+	<td align="right"><label> Name : </label></td>
+       <td align="center"><input type="text" placeholder="Reman" id="name"></td>
+	 
+    </div>
+	 </tr>
+	 
+	
+   <tr><div class="input_field">
+	<td align="right"><label> Subject: </label</td>
+       <td align="center"><input type="text" placeholder="mathematics" id="subject"></td>
+    </div><br>
+	</tr>
+	
+    <tr><div class="input_field">
+		<td align="right"><label> Phone: </label></td>
+        <td align="center"><input type="text" placeholder="1234567890" id="phone"></td>
+    </div><br>
+	</tr>
+	
+    <tr><div class="input_field">
+	 <td align="right"><label> Email : </label></td>
+        <td align="center"><input type="email" placeholder="xyz@gmail.com" id="email"></td>
+    </div><br>
+	</tr>
+	 <tr>
+		<div class="input_field">
+		<td align="right"><label> Password: </label><td>
+        <input type="password" placeholder="password" id="password">
+    </div><br>
+	</tr>
+	<tr>
+	<td align="right"><label> Address: </label></td>
+    <div class="input_field">
+        <td align="center"><textarea placeholder=" any address" id="address"></textarea></td>
+    </div><br>
+	</tr>
+	<tr>
+	<div class="form-group">
+			      	<td align="right"><label>country:</label></td>
+			      	<td align="center"><select class="custom-select" id="country" required>
+				     <option selected disabled value="">please select your country</option>
+				        <option>USA</option>
+						<option>india </option>
+				        <option>Nepal</option>
+				        <option>Canada</option>
+			      </select>
+				  
+    </div><br>
+	</tr>
+    <tr><div " class="btn">
+       <td align="center" colspan="2"> <input style="background-color:blue;" type="submit"></td>
+    </div>
+	<tr>
+	</table>
+  </form>
+</div>
+
+</body>
+</html>
